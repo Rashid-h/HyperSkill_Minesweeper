@@ -16,19 +16,19 @@ class MineRow(private val column :Int = 9, private val row :Int = 9, private val
         var num = 1
         print("  │ ")
         for (i in 1..row)
-        print(if(i < 10) "0$i  " else "$i  ")
+        print(if(i < 10) "0$i " else "$i ")
         print("│\n——│")
         for (i in 1..row)
-        print("————")
+        print("———")
         println("|")
         for (list in visibleField) {
-            if (num < 10) println("0$num| " + list.joinToString(" | ") + "  |")
-            else println("$num| " + list.joinToString(" | ") + "  |")
+            if (num < 10) println("0$num| " + list.joinToString("  ") + "  |")
+            else println("$num| " + list.joinToString("  ") + "  |")
             num++
         }
         print("——│")
         for (i in 1..row)
-            print("————")
+            print("———")
         println("|")
     }
 
@@ -130,13 +130,13 @@ class MineRow(private val column :Int = 9, private val row :Int = 9, private val
     private fun checkFreeRow(column: Int, row: Int) {
         if (realField[column][row] == ".") {
             visibleField[column][row] = "/"
+//            for (i in 0 until this.column) {
+//                for (j in 0 until this.row) {
+//                    if (realField[i][j] != "X" && realField[i][j] !in "1".."9")
+//                        visibleField[i][j] = "/"
+//                }
+//            }
             for (i in 0 until this.column) {
-                for (j in 0 until this.row) {
-                    if (realField[i][j] != "X" && realField[i][j] !in "1".."9")
-                        visibleField[i][j] = "/"
-                }
-            }
-            /*for (i in 0 until this.column) {
                 if (realField[i][row] != "X" && realField[i][row] !in "1".."9")
                     visibleField[i][row] = "/"
             }
@@ -155,7 +155,7 @@ class MineRow(private val column :Int = 9, private val row :Int = 9, private val
                             visibleField[i][j] = "/"
                     }
                 }
-            }*/
+            }
         }
     }
 
