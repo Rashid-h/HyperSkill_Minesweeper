@@ -17,7 +17,7 @@ class MineRow(private val column :Int = 9, private val row :Int = 9, private val
         print("  │ ")
         for (i in 1..row)
         print(if(i < 10) "0$i " else "$i ")
-        print("│\n——│")
+        print("│\n——│—")
         for (i in 1..row)
         print("———")
         println("|")
@@ -26,7 +26,7 @@ class MineRow(private val column :Int = 9, private val row :Int = 9, private val
             else println("$num| " + list.joinToString("  ") + "  |")
             num++
         }
-        print("——│")
+        print("——│—")
         for (i in 1..row)
             print("———")
         println("|")
