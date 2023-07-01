@@ -1,12 +1,11 @@
 package minesweeper
 
 fun main() {
-    println("How many mines do you want on the field?")
-    val mineRow = MineRow(mines = readln().toInt())
+    println("Enter the height, width of the field and the number of mines")
+    val valuesMineRow = readln().split(" ");
+    val mineRow = MineRow(valuesMineRow[0].toInt(),valuesMineRow[1].toInt(),valuesMineRow[2].toInt())
     while (!mineRow.isCheckAllMines()) {
-        mineRow.printMineRow()
-        println("Set/delete mines marks (x and y coordinates):")
+        println("Set/unset mines marks or claim a cell as free:")
         mineRow.checkRow(readln())
     }
-    println("Congratulations! You found all the mines!")
 }
